@@ -1,0 +1,140 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,1_png,1356a0713ac0df4_jpg,man_png,star_jpg,2_png,9_png,help1_png,return_png,rules_png,start_png,title_png,again_png,paihang_png,red1_png,red2_png,true_jpg,tru_jpg,true1_jpg,back_png,lanzi_png,dabian_png,rule_png,bg_png,help_png,rank_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "1_png",
+			"type": "image",
+			"url": "assets/1.png"
+		},
+		{
+			"name": "1356a0713ac0df4_jpg",
+			"type": "image",
+			"url": "assets/1356a0713ac0df4.jpg"
+		},
+		{
+			"name": "man_png",
+			"type": "image",
+			"url": "assets/man.png"
+		},
+		{
+			"name": "star_jpg",
+			"type": "image",
+			"url": "assets/star.jpg"
+		},
+		{
+			"name": "2_png",
+			"type": "image",
+			"url": "assets/2.png"
+		},
+		{
+			"name": "9_png",
+			"type": "image",
+			"url": "assets/9.png"
+		},
+		{
+			"name": "help1_png",
+			"type": "image",
+			"url": "assets/help1.png"
+		},
+		{
+			"name": "return_png",
+			"type": "image",
+			"url": "assets/return.png"
+		},
+		{
+			"name": "rules_png",
+			"type": "image",
+			"url": "assets/rules.png"
+		},
+		{
+			"name": "start_png",
+			"type": "image",
+			"url": "assets/start.png"
+		},
+		{
+			"name": "title_png",
+			"type": "image",
+			"url": "assets/title.png"
+		},
+		{
+			"name": "again_png",
+			"type": "image",
+			"url": "assets/again.png"
+		},
+		{
+			"name": "paihang_png",
+			"type": "image",
+			"url": "assets/paihang.png"
+		},
+		{
+			"name": "red1_png",
+			"type": "image",
+			"url": "assets/red1.png"
+		},
+		{
+			"name": "red2_png",
+			"type": "image",
+			"url": "assets/red2.png"
+		},
+		{
+			"name": "true_jpg",
+			"type": "image",
+			"url": "assets/true.jpg"
+		},
+		{
+			"name": "tru_jpg",
+			"type": "image",
+			"url": "assets/tru.jpg"
+		},
+		{
+			"name": "true1_jpg",
+			"type": "image",
+			"url": "assets/true1.jpg"
+		},
+		{
+			"name": "back_png",
+			"type": "image",
+			"url": "assets/back.png"
+		},
+		{
+			"name": "lanzi_png",
+			"type": "image",
+			"url": "assets/lanzi.png"
+		},
+		{
+			"name": "dabian_png",
+			"type": "image",
+			"url": "assets/dabian.png"
+		},
+		{
+			"name": "rule_png",
+			"type": "image",
+			"url": "assets/rule.png"
+		},
+		{
+			"name": "bg_png",
+			"type": "image",
+			"url": "assets/bg.png"
+		},
+		{
+			"name": "help_png",
+			"type": "image",
+			"url": "assets/help.png"
+		},
+		{
+			"name": "rank_png",
+			"type": "image",
+			"url": "assets/rank.png"
+		}
+	]
+}
