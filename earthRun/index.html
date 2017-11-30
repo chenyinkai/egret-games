@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>地球跑跑跑</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+        /* 清除内外边距 */
+        h1, h2, p, div {
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box; /* Firefox */
+            -webkit-box-sizing:border-box; /* Safari */
+        }
+        body{font-size:12px;}
+        input,select,textarea{outline:none;border:none;background: none;}
+        img{border:none;}
+
+        /* 重置列表元素 */
+        ul, ol { list-style: none; }
+
+        /* 重置文本格式元素 */
+        a { text-decoration: none; color: #666}
+
+        /* 清除浮动 */
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .clearfix { zoom: 1; }
+
+
+
+        img {
+            width: 100%;
+        }
+
+        .list {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            display: none;
+            background-color: #CCCCCC;
+            color: red;
+            z-index: 999;
+        }
+        .main {
+            width: 100%;
+            background-color: white;
+            border-radius: 5px;
+            padding: 0 10%;
+        }
+        .img {
+            width: 40px;
+            height: 40px;
+            margin: 0 15px;
+            line-height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            font-weight: normal;
+        }
+        .items {
+            overflow-y: auto;
+        }
+        .loading {
+            width: 55px;
+            margin: 0 auto;
+            background:red;
+            height:55px;
+        }
+        .item {
+            padding: 5px 10px;
+            line-height: 40px;
+            border-bottom: 1px solid #CCCCCC;
+        }
+        .item div {
+            float: left;
+
+        }
+        .text {
+            height: 40px;
+            border-top: 1px solid black;
+            padding: 5px;
+        }
+        .info {
+            height: 40px;
+            overflow: hidden;
+            color: black;
+        }
+        .info h2{
+            line-height: 25px;
+            height: 25px;
+            font-weight: normal;
+        }
+        .info p{
+            line-height: 15px;
+            height: 15px;
+        }
+        .info span {
+            color: red;
+        }
+        .no {
+            color: #a3a3a3;
+        }
+
+        .btn {
+            width: 50%;
+            height: 30px;
+            margin: 10px auto 0;
+            line-height: 30px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #ee6a64;
+            color: white;
+        }
+        .noneranking {
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件。删除 modules_files 标签后，库文件加载列表将不会变化，请谨慎操作！-->
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
+	<!--modules_files_end-->
+
+    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+    <!--other_libs_files_start-->
+    <!--other_libs_files_end-->
+
+    <!--这个标签会被替换为项目中所有的 javascript 文件。删除 game_files 标签后，项目文件加载列表将不会变化，请谨慎操作！-->
+    <!--game_files_start-->
+	<script egret="game" src="bin-debug/BeginScene.js"></script>
+	<script egret="game" src="bin-debug/Data.js"></script>
+	<script egret="game" src="bin-debug/EnemyBall.js"></script>
+	<script egret="game" src="bin-debug/Game.js"></script>
+	<script egret="game" src="bin-debug/GameEvent.js"></script>
+	<script egret="game" src="bin-debug/HelpLayer.js"></script>
+	<script egret="game" src="bin-debug/LoadingUI.js"></script>
+	<script egret="game" src="bin-debug/Main.js"></script>
+	<script egret="game" src="bin-debug/MyBall.js"></script>
+	<script egret="game" src="bin-debug/OverScene.js"></script>
+	<!--game_files_end-->
+</head>
+<body>
+
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="auto"
+         data-scale-mode="showAll"
+         data-frame-rate="30"
+         data-content-width="640"
+         data-content-height="1136"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="false" data-show-log="false"
+         data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    </div>
+
+    <div class="list">
+        <div class="main">
+            <h1>排行榜</h1>
+            <div class="text">
+                <p>获取排名中...请稍等</p>
+            </div>
+            <div class="items">
+                <div class="loading">
+                </div>
+                <!--<div class="item clearfix">
+                    <div class="no">1#</div>
+                    <div class="img"><img src="http://game.solosea.cn/gameSet/img/chui.jpg"></div>
+                    <div class="info">
+                        <h2>呵呵</h2>
+                        <p>玩了<span>2</span>次，最高纪录<span>160</span>分</p>
+                    </div>
+                </div>-->
+            </div>
+            <div class="btn">关闭</div>
+        </div>
+    </div>
+    <script>
+        /**
+         * {
+         * "renderMode":, //引擎渲染模式，"canvas" 或者 "webgl"
+         * "audioType": "" //使用的音频类型，0:默认，1:qq audio，2:web audio，3:audio
+         * "antialias": //WebGL模式下是否开启抗锯齿，true:开启，false:关闭，默认为false
+         * }
+         **/
+        egret.runEgret({renderMode:"webgl", audioType:0});
+    </script>
+</body>
+</html>
