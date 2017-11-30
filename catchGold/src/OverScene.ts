@@ -56,7 +56,7 @@ class OverScene extends egret.Sprite{
         var request = new egret.HttpRequest();
         request.responseType = egret.HttpResponseType.TEXT;
         //设置为 POST 请求
-        request.open("http://wxgame.solosea.com/user/score.html", egret.HttpMethod.POST);
+        request.open("http://xxx/user/score.html", egret.HttpMethod.POST);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send(params);
         request.addEventListener(egret.Event.COMPLETE,this.onPostComplete,this);

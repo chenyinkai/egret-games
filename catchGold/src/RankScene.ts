@@ -66,7 +66,7 @@ class RankScene extends egret.Sprite {
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.homeBtnCallback, this);
 
         var user = getwinname();
-        var url:string = "http://wxgame.solosea.com/user/ranking.html?gid=" + user.gid;
+        var url:string = "http://xxx/user/ranking.html?gid=" + user.gid;
         var loader:egret.URLLoader = new egret.URLLoader();
 
         loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
