@@ -28,3 +28,4 @@ var Shi = (function (_super) {
     return Shi;
 }(egret.Sprite));
 egret.registerClass(Shi,'Shi');
+//# sourceMappingURL=Shi.js.map

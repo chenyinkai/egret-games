@@ -28,3 +28,4 @@ var Gold = (function (_super) {
     return Gold;
 }(egret.Sprite));
 egret.registerClass(Gold,'Gold');
+//# sourceMappingURL=Gold.js.map

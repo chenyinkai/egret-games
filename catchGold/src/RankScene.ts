@@ -1,6 +1,5 @@
 declare function isdefwinname();
 declare function listShow();
-declare function getwinname();
 class RankScene extends egret.Sprite {
    
     public constructor(){
@@ -64,40 +63,7 @@ class RankScene extends egret.Sprite {
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.homeBtnCallback, this);
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_END, this.homeBtnCallback, this);
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.homeBtnCallback, this);
-
-        var user = getwinname();
-        var url:string = "http://xxx/user/ranking.html?gid=" + user.gid;
-        var loader:egret.URLLoader = new egret.URLLoader();
-
-        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
-        loader.addEventListener(egret.Event.COMPLETE,this.onGetComplete,this);
-
-        var request:egret.URLRequest = new egret.URLRequest(url);
-        request.method = egret.URLRequestMethod.GET;
-        loader.load(request);
     }
-
-    private onGetComplete(event:egret.Event):void{
-        console.log(111);
-        var loader:egret.URLLoader = <egret.URLLoader> event.target;
-        var data:egret.URLVariables = loader.data;
-
-        var js = eval("("+data.toString()+")");
-        console.log(js.data);
-        if(js.data.length === 0){
-            this.txt.text = "还没有排行，快来参与吧";
-        }else{
-            for(var i = 0; i < 10; i++){
-                if(js.data[i].name == null){
-                    this.txt.text += js.data[i].ranking + "、  玩家 :  " + "无名侠" + "       分数 :    " + js.data[i].tscore + "\n";
-                }else{
-                    this.txt.text += js.data[i].ranking + "、  玩家 :  " + js.data[i].name + "      分数 :    " + js.data[i].tscore + "\n";
-                }
-            }
-        }
-    }
-
-    
 
     //  home按钮回调
     private homeBtnCallback(evt:egret.TouchEvent):void {

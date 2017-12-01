@@ -1,6 +1,5 @@
 declare function isdefwinname();
 declare function listShow();
-declare function getwinname();
 class OverScene extends egret.Sprite{
     private sky:egret.Bitmap;
 	private txt:egret.TextField;
@@ -49,19 +48,6 @@ class OverScene extends egret.Sprite{
 		txt.textColor = 0xff0000;
         var t = parseInt(goldScore) - 2*parseInt(shitScore);
         txt.text = "你抢到了" + goldScore + "个红包" + "\n\n" + "你被" + shitScore + "坨屎砸中了" + "\n\n" + "分数:" + t;
-
-        var winname = getwinname();
-        console.log(winname);
-        var params = "gid=" + winname.gid  + "&uid=" + winname.uid + "&score=" + t;
-        var request = new egret.HttpRequest();
-        request.responseType = egret.HttpResponseType.TEXT;
-        //设置为 POST 请求
-        request.open("http://xxx/user/score.html", egret.HttpMethod.POST);
-        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send(params);
-        request.addEventListener(egret.Event.COMPLETE,this.onPostComplete,this);
-        request.addEventListener(egret.IOErrorEvent.IO_ERROR,this.onPostIOError,this);
-        request.addEventListener(egret.ProgressEvent.PROGRESS,this.onPostProgress,this);
 
 		 //  添加返回主菜单按钮
         var againBtn = new egret.Bitmap();
@@ -175,38 +161,4 @@ class OverScene extends egret.Sprite{
         }
 
     }
-
-
-    private onPostComplete(event:egret.Event):void {
-        var request = <egret.HttpRequest>event.currentTarget;
-        // console.log("post data : ",request.response);
-
-        // var userinfo = JSON.parse(request.response);
-        // var maxScoreLabel = GameData.score;
-        // if ( userinfo.status == 1 ) {
-        //     maxScoreLabel = userinfo.data.tscore;
-        // }
-        // // console.log("post data tscore : ", userinfo.data.tscore);
-        // GameData.userinfo.maxScore = maxScoreLabel;
-
-        // var rankLabel = "--";
-        // if ( userinfo.status == 1 ) {
-        //     rankLabel = userinfo.data.ranking;
-        // }
-        // // console.log("post data ranking : ", userinfo.data.ranking);
-        // GameData.userinfo.ranking = rankLabel;
-
-        // this.maxScoreLabel.text = maxScoreLabel + "";
-        // // this.maxScoreLabel.x = this.scoreBg.x + this.scoreBg.width/5;
-        // this.rankLabel.text = rankLabel + "";
-        // // this.rankLabel.x = this.scoreBg.x + this.scoreBg.width/5;
-
-    }
-    private onPostIOError(event:egret.IOErrorEvent):void {
-        console.log("FailedLayer post error : " + event);
-    }
-    private onPostProgress(event:egret.ProgressEvent):void {
-        // console.log("post progress : " + Math.floor(100*event.bytesLoaded/event.bytesTotal) + "%");
-    }
-
 }

@@ -123,3 +123,4 @@ var BeginScene = (function (_super) {
     return BeginScene;
 }(egret.Sprite));
 egret.registerClass(BeginScene,'BeginScene');
+//# sourceMappingURL=BeginScene.js.map

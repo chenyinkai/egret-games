@@ -65,3 +65,4 @@ var HelpLayer = (function (_super) {
     return HelpLayer;
 }(egret.Sprite));
 egret.registerClass(HelpLayer,'HelpLayer');
+//# sourceMappingURL=HelpLayer.js.map

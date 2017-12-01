@@ -45,3 +45,4 @@ var TimerPanel = (function (_super) {
     return TimerPanel;
 }(egret.Sprite));
 egret.registerClass(TimerPanel,'TimerPanel');
+//# sourceMappingURL=TimerPanel.js.map

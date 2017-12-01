@@ -11,3 +11,4 @@ var Data = (function () {
     return Data;
 }());
 egret.registerClass(Data,'Data');
+//# sourceMappingURL=Data.js.map

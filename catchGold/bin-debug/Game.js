@@ -136,3 +136,4 @@ var Game = (function (_super) {
     return Game;
 }(egret.Sprite));
 egret.registerClass(Game,'Game');
+//# sourceMappingURL=Game.js.map

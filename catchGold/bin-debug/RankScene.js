@@ -55,34 +55,6 @@ var RankScene = (function (_super) {
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.homeBtnCallback, this);
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_END, this.homeBtnCallback, this);
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.homeBtnCallback, this);
-        var user = getwinname();
-        var url = "http://wxgame.solosea.com/user/ranking.html?gid=" + user.gid;
-        var loader = new egret.URLLoader();
-        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
-        loader.addEventListener(egret.Event.COMPLETE, this.onGetComplete, this);
-        var request = new egret.URLRequest(url);
-        request.method = egret.URLRequestMethod.GET;
-        loader.load(request);
-    };
-    p.onGetComplete = function (event) {
-        console.log(111);
-        var loader = event.target;
-        var data = loader.data;
-        var js = eval("(" + data.toString() + ")");
-        console.log(js.data);
-        if (js.data.length === 0) {
-            this.txt.text = "还没有排行，快来参与吧";
-        }
-        else {
-            for (var i = 0; i < 10; i++) {
-                if (js.data[i].name == null) {
-                    this.txt.text += js.data[i].ranking + "、  玩家 :  " + "无名侠" + "       分数 :    " + js.data[i].tscore + "\n";
-                }
-                else {
-                    this.txt.text += js.data[i].ranking + "、  玩家 :  " + js.data[i].name + "      分数 :    " + js.data[i].tscore + "\n";
-                }
-            }
-        }
     };
     //  home按钮回调
     p.homeBtnCallback = function (evt) {
@@ -108,3 +80,4 @@ var RankScene = (function (_super) {
     return RankScene;
 }(egret.Sprite));
 egret.registerClass(RankScene,'RankScene');
+//# sourceMappingURL=RankScene.js.map
