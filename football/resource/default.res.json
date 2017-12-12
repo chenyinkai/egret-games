@@ -1,0 +1,120 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,ghostplayer-sheet0_png,ball-sheet0_png,playbtn-sheet0_png,quitbtn-sheet0_png,background2-sheet0_png,ball_png,paihang_png,1_jpg,2_jpg,3_jpg,4_jpg,help1_png,back1_png,start1_png,again1_png,rank1_png,rule_png,1484531275_265465_png,title_png,title2_png,koushao_mp3",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "ghostplayer-sheet0_png",
+			"type": "image",
+			"url": "assets/ghostplayer-sheet0.png"
+		},
+		{
+			"name": "ball-sheet0_png",
+			"type": "image",
+			"url": "assets/ball-sheet0.png"
+		},
+		{
+			"name": "playbtn-sheet0_png",
+			"type": "image",
+			"url": "assets/playbtn-sheet0.png"
+		},
+		{
+			"name": "quitbtn-sheet0_png",
+			"type": "image",
+			"url": "assets/quitbtn-sheet0.png"
+		},
+		{
+			"name": "background2-sheet0_png",
+			"type": "image",
+			"url": "assets/background2-sheet0.png"
+		},
+		{
+			"name": "ball_png",
+			"type": "image",
+			"url": "assets/ball.png"
+		},
+		{
+			"name": "paihang_png",
+			"type": "image",
+			"url": "assets/paihang.png"
+		},
+		{
+			"name": "1_jpg",
+			"type": "image",
+			"url": "assets/1.jpg"
+		},
+		{
+			"name": "2_jpg",
+			"type": "image",
+			"url": "assets/2.jpg"
+		},
+		{
+			"name": "3_jpg",
+			"type": "image",
+			"url": "assets/3.jpg"
+		},
+		{
+			"name": "4_jpg",
+			"type": "image",
+			"url": "assets/4.jpg"
+		},
+		{
+			"name": "help1_png",
+			"type": "image",
+			"url": "assets/help1.png"
+		},
+		{
+			"name": "back1_png",
+			"type": "image",
+			"url": "assets/back1.png"
+		},
+		{
+			"name": "start1_png",
+			"type": "image",
+			"url": "assets/start1.png"
+		},
+		{
+			"name": "again1_png",
+			"type": "image",
+			"url": "assets/again1.png"
+		},
+		{
+			"name": "rank1_png",
+			"type": "image",
+			"url": "assets/rank1.png"
+		},
+		{
+			"name": "rule_png",
+			"type": "image",
+			"url": "assets/rule.png"
+		},
+		{
+			"name": "1484531275_265465_png",
+			"type": "image",
+			"url": "assets/1484531275_265465.png"
+		},
+		{
+			"name": "title_png",
+			"type": "image",
+			"url": "assets/title.png"
+		},
+		{
+			"name": "title2_png",
+			"type": "image",
+			"url": "assets/title2.png"
+		},
+		{
+			"name": "koushao_mp3",
+			"type": "sound",
+			"url": "assets/koushao.mp3"
+		}
+	]
+}

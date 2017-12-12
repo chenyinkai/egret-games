@@ -1,0 +1,24 @@
+{
+	"initial": [
+		"libs/modules/egret/egret.js",
+		"libs/modules/egret/egret.web.js",
+		"libs/modules/game/game.js",
+		"libs/modules/res/res.js",
+		"libs/modules/tween/tween.js"
+	],
+	"game": [
+		"bin-debug/Length4.js",
+		"bin-debug/Ball.js",
+		"bin-debug/Data.js",
+		"bin-debug/GameEvent.js",
+		"bin-debug/HelpLayer.js",
+		"bin-debug/Length3.js",
+		"bin-debug/BeginScene.js",
+		"bin-debug/LoadingUI.js",
+		"bin-debug/Main.js",
+		"bin-debug/Man.js",
+		"bin-debug/OverScene.js",
+		"bin-debug/RankScene.js",
+		"bin-debug/Test.js"
+	]
+}
