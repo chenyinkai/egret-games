@@ -23,3 +23,9 @@
 	>猜拳嘛，就不多介绍了
 
 	>[在线预览](https://chenyinkai.github.io/Pages/egret/fingerGuess/index.html)
+
+* football
+
+	>点击屏幕接住传递过来的足球
+
+	>[在线预览](https://chenyinkai.github.io/Pages/egret/football/index.html)
