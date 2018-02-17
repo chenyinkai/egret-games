@@ -1,11 +1,24 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
-        _super.call(this);
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+        var _this = _super.call(this) || this;
+        _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.onAddToStage, _this);
+        return _this;
     }
-    var d = __define,c=Main,p=c.prototype;
-    p.onAddToStage = function (event) {
+    Main.prototype.onAddToStage = function (event) {
         //设置加载进度界面
         //Config to load process interface
         this.loadingView = new LoadingUI();
@@ -19,7 +32,7 @@ var Main = (function (_super) {
      * 配置文件加载完成,开始预加载preload资源组。
      * configuration file loading is completed, start to pre-load the preload resource group
      */
-    p.onConfigComplete = function (event) {
+    Main.prototype.onConfigComplete = function (event) {
         RES.removeEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
@@ -31,7 +44,7 @@ var Main = (function (_super) {
      * preload资源组加载完成
      * Preload resource group is loaded
      */
-    p.onResourceLoadComplete = function (event) {
+    Main.prototype.onResourceLoadComplete = function (event) {
         if (event.groupName == "preload") {
             this.stage.removeChild(this.loadingView);
             RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
@@ -45,14 +58,14 @@ var Main = (function (_super) {
      * 资源组加载出错
      *  The resource group loading failed
      */
-    p.onItemLoadError = function (event) {
+    Main.prototype.onItemLoadError = function (event) {
         console.warn("Url:" + event.resItem.url + " has failed to load");
     };
     /**
      * 资源组加载出错
      *  The resource group loading failed
      */
-    p.onResourceLoadError = function (event) {
+    Main.prototype.onResourceLoadError = function (event) {
         //TODO
         console.warn("Group:" + event.groupName + " has failed to load");
         //忽略加载失败的项目
@@ -63,26 +76,12 @@ var Main = (function (_super) {
      * preload资源组加载进度
      * Loading process of preload resource group
      */
-    p.onResourceProgress = function (event) {
+    Main.prototype.onResourceProgress = function (event) {
         if (event.groupName == "preload") {
             this.loadingView.setProgress(event.itemsLoaded, event.itemsTotal);
         }
     };
-    /**
-     * 创建游戏场景
-     * Create a game scene
-     */
-    // private createGameScene():void {
-    //     var game = new Game();
-    //     this.addChild(game);
-    //     game.addEventListener(GameEvent.GAME_HIT,this.over,this);
-    // }
-    // private over(){
-    //     console.log("弹出overScene界面");
-    // }
-    p.createGameScene = function () {
-        // var ball = new Game();
-        // this.addChild(ball);
+    Main.prototype.createGameScene = function () {
         var startScene = new BeginScene();
         this.addChild(startScene);
         startScene.addEventListener(GameEvent.GAME_RANK, this.rank, this);
@@ -90,8 +89,7 @@ var Main = (function (_super) {
         startScene.addEventListener(GameEvent.GAME_HELP, this.help, this);
     };
     /* 游戏准备 */
-    p.startgame = function () {
-        //console.log("startgame");
+    Main.prototype.startgame = function () {
         this.removeChildren();
         var layer = new BeginScene();
         this.addChild(layer);
@@ -100,35 +98,33 @@ var Main = (function (_super) {
         layer.addEventListener(GameEvent.GAME_HELP, this.help, this);
     };
     /*游戏排行榜*/
-    p.rank = function () {
+    Main.prototype.rank = function () {
         this.removeChildren();
         var rankScene = new RankScene();
         this.addChild(rankScene);
         rankScene.addEventListener(GameEvent.GAME_START, this.startgame, this);
     };
     /* 游戏开始 */
-    p.go = function () {
+    Main.prototype.go = function () {
         this.removeChildren();
         var ball = new Game();
         this.addChild(ball);
         ball.addEventListener(GameEvent.GAME_HIT, this.gameover, this);
-        //layer.addEventListener(GameEvent.GAME_START, this.startgame, this);
     };
     /*gameover */
-    p.gameover = function () {
-        //this.removeChildren();
+    Main.prototype.gameover = function () {
         var layer = new OverScene();
         this.addChild(layer);
         layer.addEventListener(GameEvent.GAME_CONTINUE, this.begingame, this);
         layer.addEventListener(GameEvent.GAME_BLEED, this.startgame, this);
         layer.addEventListener(GameEvent.GAME_TORANK, this.rank, this);
     };
-    p.begingame = function () {
+    Main.prototype.begingame = function () {
         console.log("startgame");
         this.go();
     };
     /* help */
-    p.help = function () {
+    Main.prototype.help = function () {
         this.removeChildren();
         var layer = new HelpLayer();
         this.addChild(layer);
@@ -136,5 +132,5 @@ var Main = (function (_super) {
     };
     return Main;
 }(egret.DisplayObjectContainer));
-egret.registerClass(Main,'Main');
+__reflect(Main.prototype, "Main");
 //# sourceMappingURL=Main.js.map

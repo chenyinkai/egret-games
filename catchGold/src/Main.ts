@@ -114,23 +114,7 @@ class Main extends egret.DisplayObjectContainer {
 
     private textfield:egret.TextField;
 
-    /**
-     * 创建游戏场景
-     * Create a game scene
-     */
-    // private createGameScene():void {
-    //     var game = new Game();
-    //     this.addChild(game);
-    //     game.addEventListener(GameEvent.GAME_HIT,this.over,this);
-    // }
-
-    // private over(){
-    //     console.log("弹出overScene界面");
-    // }
-
     private createGameScene():void {
-        // var ball = new Game();
-        // this.addChild(ball);
         var startScene = new BeginScene();
         this.addChild(startScene);
         startScene.addEventListener(GameEvent.GAME_RANK, this.rank, this);
@@ -140,7 +124,6 @@ class Main extends egret.DisplayObjectContainer {
 
      /* 游戏准备 */
     private startgame():void {
-        //console.log("startgame");
         this.removeChildren();
         var layer = new BeginScene();
         this.addChild(layer);
@@ -163,12 +146,10 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(ball);
 
         ball.addEventListener(GameEvent.GAME_HIT, this.gameover, this);
-        //layer.addEventListener(GameEvent.GAME_START, this.startgame, this);
     }
 
     /*gameover */
     private gameover(){
-        //this.removeChildren();
         var layer = new OverScene();
         this.addChild(layer);
         layer.addEventListener(GameEvent.GAME_CONTINUE, this.begingame, this);

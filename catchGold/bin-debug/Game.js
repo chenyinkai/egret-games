@@ -1,15 +1,28 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Game = (function (_super) {
     __extends(Game, _super);
     function Game() {
-        _super.call(this);
-        this.j = 0;
-        this.score = 1;
-        this.score1 = 0;
-        this.init();
-        this.createTimer();
+        var _this = _super.call(this) || this;
+        _this.j = 0;
+        _this.score = 1;
+        _this.score1 = 0;
+        _this.init();
+        _this.createTimer();
+        return _this;
     }
-    var d = __define,c=Game,p=c.prototype;
-    p.init = function () {
+    Game.prototype.init = function () {
         var scrW = Data.getStageWidth();
         var scrH = Data.getStageHeight();
         var bg = new egret.Bitmap();
@@ -34,7 +47,7 @@ var Game = (function (_super) {
         this.shitScore.textColor = 0x00ff00;
         this.shitScore.textAlign = egret.HorizontalAlign.LEFT;
         this.shitScore.text = "大便:0";
-        //
+        //生成篮子
         var man = new Man();
         this.addChild(man);
         this.man = man;
@@ -43,19 +56,17 @@ var Game = (function (_super) {
         man.scaleX = 0.6;
         this.foes = [];
         this.balls = [];
-        //dabian
         this.foes1 = [];
         this.balls1 = [];
         this.timer = new egret.Timer(1000 / 30, 0);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.timerfunc, this);
         this.timer.start();
         this.deaths = [];
-        //dabian
         this.deaths1 = [];
     };
-    p.timerfunc = function () {
+    Game.prototype.timerfunc = function () {
         this.j++;
-        //金子
+        //生成金子
         if (this.j % 6 === 0) {
             var foe = new Gold();
             foe.y = 20;
@@ -64,6 +75,7 @@ var Game = (function (_super) {
             this.addChild(foe);
             this.balls.push(foe);
         }
+        //判断碰撞
         var distance = 0;
         var distance2 = 0;
         for (var j = 0; j < this.balls.length; j++) {
@@ -79,7 +91,7 @@ var Game = (function (_super) {
         for (var i = 0; i < this.foes.length; i++) {
             this.foes[i].move(this.deaths);
         }
-        //大便
+        //生成大便
         if (this.j % 10 === 0) {
             var foe1 = new Shi();
             foe1.y = 20;
@@ -101,32 +113,29 @@ var Game = (function (_super) {
             }
         }
         for (var i = 0; i < this.foes1.length; i++) {
-            //console.log(this.foes[i].status);
             this.foes1[i].move(this.deaths1);
         }
     };
-    p.drawInit = function () {
-        //console.log("接到金子了");
+    Game.prototype.drawInit = function () {
         this.goldScore.text = "红包:" + this.score;
         var key = "goldScore";
         var value = "" + this.score;
         egret.localStorage.setItem(key, value);
     };
-    p.drawInit1 = function () {
-        //console.log("接到大便了");
+    Game.prototype.drawInit1 = function () {
         this.shitScore.text = "大便:" + this.score1;
         var key = "shitScore";
         var value = "" + this.score1;
         egret.localStorage.setItem(key, value);
     };
-    p.createTimer = function () {
+    Game.prototype.createTimer = function () {
         var timerPanel = new TimerPanel();
         this.addChild(timerPanel);
         this.timerPanel = timerPanel;
         timerPanel.start();
         timerPanel.addEventListener(GameEvent.GAME_OVER, this.gameOver, this);
     };
-    p.gameOver = function () {
+    Game.prototype.gameOver = function () {
         this.removeChild(this.man);
         this.timer.stop();
         console.log("游戏结束");
@@ -135,5 +144,5 @@ var Game = (function (_super) {
     };
     return Game;
 }(egret.Sprite));
-egret.registerClass(Game,'Game');
+__reflect(Game.prototype, "Game");
 //# sourceMappingURL=Game.js.map

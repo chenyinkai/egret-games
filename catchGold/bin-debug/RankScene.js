@@ -1,11 +1,24 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var RankScene = (function (_super) {
     __extends(RankScene, _super);
     function RankScene() {
-        _super.call(this);
-        this.init();
+        var _this = _super.call(this) || this;
+        _this.init();
+        return _this;
     }
-    var d = __define,c=RankScene,p=c.prototype;
-    p.init = function () {
+    RankScene.prototype.init = function () {
         //  获取屏幕大小
         var stageW = Data.getStageWidth();
         var stageH = Data.getStageHeight();
@@ -20,7 +33,6 @@ var RankScene = (function (_super) {
         shape.graphics.drawRect(0, 0, stageW, 800);
         shape.graphics.endFill();
         shape.anchorOffsetX = shape.width / 2;
-        //shape.anchorOffsetY = shape.height / 2;
         shape.x = stageW / 2;
         shape.y = 0;
         this.addChild(shape);
@@ -29,7 +41,6 @@ var RankScene = (function (_super) {
         this.addChild(title);
         title.y = 50;
         title.textAlign = egret.HorizontalAlign.CENTER;
-        //title.inputType = egret.TextFieldInputType.TEXT;
         title.size = 50;
         title.textColor = 0xff0000;
         title.text = "排行榜(前十)";
@@ -38,10 +49,8 @@ var RankScene = (function (_super) {
         this.addChild(txt);
         txt.y = 120;
         txt.textAlign = egret.HorizontalAlign.LEFT;
-        //txt.inputType = egret.TextFieldInputType.TEXT;
         txt.size = 30;
         txt.textColor = 0xff0000;
-        //txt.text = "您还没有成绩，赶快参加吧。";
         this.txt = txt;
         //  添加返回主菜单按钮
         var homeBtn = new egret.Bitmap();
@@ -56,28 +65,24 @@ var RankScene = (function (_super) {
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_END, this.homeBtnCallback, this);
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.homeBtnCallback, this);
     };
-    //  home按钮回调
-    p.homeBtnCallback = function (evt) {
-        // console.log("home按钮回调");
+    //  返回按钮回调
+    RankScene.prototype.homeBtnCallback = function (evt) {
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }
         else if (evt.type == egret.TouchEvent.TOUCH_END) {
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
             var event = new GameEvent(GameEvent.GAME_START);
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
     };
     return RankScene;
 }(egret.Sprite));
-egret.registerClass(RankScene,'RankScene');
+__reflect(RankScene.prototype, "RankScene");
 //# sourceMappingURL=RankScene.js.map

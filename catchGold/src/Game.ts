@@ -6,11 +6,9 @@ class Game extends egret.Sprite{
 	}
 
 	private bg:egret.Bitmap;
-	//jinzi
 	private foes:Array<Gold>;
     private deaths:Array<any>;
 	private balls:Array<any>;
-	//Shi
 	private foes1:Array<Shi>;
 	private deaths1:Array<any>;
 	private balls1:Array<any>;
@@ -54,8 +52,7 @@ class Game extends egret.Sprite{
 		this.shitScore.textColor = 0x00ff00;
 		this.shitScore.textAlign = egret.HorizontalAlign.LEFT;
 		this.shitScore.text = "大便:0";
-		//
-
+		//生成篮子
 		var man = new Man();
         this.addChild(man);
 		this.man = man;
@@ -66,7 +63,6 @@ class Game extends egret.Sprite{
 		this.foes = [];
 		this.balls = [];
 
-		//dabian
 		this.foes1 = [];
 		this.balls1 = [];
 
@@ -75,13 +71,13 @@ class Game extends egret.Sprite{
         this.timer.start();
 
 		this.deaths = [];
-		//dabian
+
 		this.deaths1 = [];
 	}
 
 	private timerfunc(){
 		this.j++;
-		//金子
+		//生成金子
 		if(this.j % 6 === 0){
 			var foe = new Gold();
 			foe.y = 20;
@@ -90,7 +86,7 @@ class Game extends egret.Sprite{
 			this.addChild(foe);
 			this.balls.push(foe);
 		}
-
+		//判断碰撞
 		var distance = 0;
 		var distance2 = 0;
 		for(var j = 0; j < this.balls.length; j++){
@@ -107,7 +103,7 @@ class Game extends egret.Sprite{
 		for ( var i = 0; i < this.foes.length; i++ ) {
             this.foes[i].move(this.deaths);
         }
-		//大便
+		//生成大便
 		if(this.j % 10 === 0){
 			var foe1 = new Shi();
 			foe1.y = 20;
@@ -131,14 +127,12 @@ class Game extends egret.Sprite{
 		}
 
 		for ( var i = 0; i < this.foes1.length; i++ ) {
-			//console.log(this.foes[i].status);
             this.foes1[i].move(this.deaths1);
         }
 
 	}
 
 	private drawInit(){
-		//console.log("接到金子了");
 		this.goldScore.text = "红包:" + this.score;
 
 		var key:string ="goldScore";
@@ -146,7 +140,6 @@ class Game extends egret.Sprite{
 		egret.localStorage.setItem(key,value);
 	}
 	private drawInit1(){
-		//console.log("接到大便了");
 		this.shitScore.text = "大便:" + this.score1;
 		var key:string ="shitScore";
 		var value:string = ""+ this.score1;

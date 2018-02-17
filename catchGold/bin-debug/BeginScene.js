@@ -1,11 +1,24 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var BeginScene = (function (_super) {
     __extends(BeginScene, _super);
     function BeginScene() {
-        _super.call(this);
-        this.init();
+        var _this = _super.call(this) || this;
+        _this.init();
+        return _this;
     }
-    var d = __define,c=BeginScene,p=c.prototype;
-    p.init = function () {
+    BeginScene.prototype.init = function () {
         var screenW = Data.getStageWidth();
         var screenH = Data.getStageHeight();
         //背景
@@ -55,51 +68,41 @@ var BeginScene = (function (_super) {
         this.helpBtn = helpBtn;
     };
     //  排行按钮回调
-    p.rankCallback = function (evt) {
+    BeginScene.prototype.rankCallback = function (evt) {
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
-            //console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }
         else if (evt.type == egret.TouchEvent.TOUCH_END) {
-            //console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
-            //  开始游戏
-            // 次数判断
             var event = new GameEvent(GameEvent.GAME_RANK);
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            //console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
     };
     //  开始按钮回调
-    p.startBtnCallback = function (evt) {
+    BeginScene.prototype.startBtnCallback = function (evt) {
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
-            //console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }
         else if (evt.type == egret.TouchEvent.TOUCH_END) {
-            //console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
-            //  开始游戏
-            // 次数判断
             var event = new GameEvent(GameEvent.GAME_GO);
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            //console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
     };
     //  help按钮回调
-    p.helpBtnCallback = function (evt) {
+    BeginScene.prototype.helpBtnCallback = function (evt) {
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
@@ -110,17 +113,15 @@ var BeginScene = (function (_super) {
             this.touchEnabled = false;
             this.startBtn.touchEnabled = false;
             this.helpBtn.touchEnabled = false;
-            //  help
             var event = new GameEvent(GameEvent.GAME_HELP);
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            //console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
     };
     return BeginScene;
 }(egret.Sprite));
-egret.registerClass(BeginScene,'BeginScene');
+__reflect(BeginScene.prototype, "BeginScene");
 //# sourceMappingURL=BeginScene.js.map

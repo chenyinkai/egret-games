@@ -31,7 +31,6 @@ class OverScene extends egret.Sprite{
 		shape.graphics.drawRect( 0, 0, 400, 300 );
 		shape.graphics.endFill();
 		shape.anchorOffsetX = shape.width / 2;
-		//shape.anchorOffsetY = shape.height / 2;
 		shape.x = stageW / 2;
 		shape.y = stageH * 0.1;
 		this.addChild( shape );
@@ -43,7 +42,6 @@ class OverScene extends egret.Sprite{
 		this.addChild(txt);
 		txt.y = stageH * 0.13;
         txt.textAlign = egret.HorizontalAlign.CENTER;
-		//txt.inputType = egret.TextFieldInputType.TEXT;
 		txt.size = 30;
 		txt.textColor = 0xff0000;
         var t = parseInt(goldScore) - 2*parseInt(shitScore);
@@ -90,40 +88,29 @@ class OverScene extends egret.Sprite{
 
     }
 
-    //  home按钮回调
+    //  返回按钮事件
     private homeBtnCallback(evt:egret.TouchEvent):void {
-        // console.log("home按钮回调");
-
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
-      
             var event:GameEvent = new GameEvent(GameEvent.GAME_CONTINUE);
             this.dispatchEvent(event);
-
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
 
     }
 
-	//  home按钮回调
+	//  再来一次按钮事件
     private againBtnCallback(evt:egret.TouchEvent):void {
-        // console.log("home按钮回调");
-
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
       
@@ -131,23 +118,18 @@ class OverScene extends egret.Sprite{
             this.dispatchEvent(event);
 
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
 
     }
 
-    //  排行榜按钮回调
+    //  排行榜按钮事件
     private rankBtnCallback(evt:egret.TouchEvent):void {
-        // console.log("home按钮回调");
-
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
       
@@ -155,7 +137,6 @@ class OverScene extends egret.Sprite{
             this.dispatchEvent(event);
 
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }

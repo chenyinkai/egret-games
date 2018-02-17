@@ -1,13 +1,26 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var HelpLayer = (function (_super) {
     __extends(HelpLayer, _super);
     function HelpLayer() {
-        _super.call(this);
-        this.stageW = 0;
-        this.stageH = 0;
-        this.setUI();
+        var _this = _super.call(this) || this;
+        _this.stageW = 0;
+        _this.stageH = 0;
+        _this.setUI();
+        return _this;
     }
-    var d = __define,c=HelpLayer,p=c.prototype;
-    p.setUI = function () {
+    HelpLayer.prototype.setUI = function () {
         //  获取屏幕大小
         this.stageW = Data.getStageWidth();
         this.stageH = Data.getStageHeight();
@@ -42,27 +55,23 @@ var HelpLayer = (function (_super) {
         homeBtn.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.homeBtnCallback, this);
     };
     //  home按钮回调
-    p.homeBtnCallback = function (evt) {
-        // console.log("home按钮回调");
+    HelpLayer.prototype.homeBtnCallback = function (evt) {
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }
         else if (evt.type == egret.TouchEvent.TOUCH_END) {
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
             var event = new GameEvent(GameEvent.GAME_START);
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
     };
     return HelpLayer;
 }(egret.Sprite));
-egret.registerClass(HelpLayer,'HelpLayer');
+__reflect(HelpLayer.prototype, "HelpLayer");
 //# sourceMappingURL=HelpLayer.js.map

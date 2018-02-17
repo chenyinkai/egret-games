@@ -23,8 +23,6 @@ class Man extends egret.Sprite{
 	private mouseDown(evt:egret.TouchEvent){
 		var p:egret.Point = new egret.Point(evt.stageX,evt.stageY);
 		this.x = p.x;
-		//console.log(this.x);
-		//this.y = p.y;
 	}
 	public mouseMove(evt:egret.TouchEvent){
 		var scrW = Data.getStageWidth();
@@ -32,7 +30,6 @@ class Man extends egret.Sprite{
 		
 		var p:egret.Point = new egret.Point(evt.stageX,evt.stageY);
 		this.x = p.x;
-		//this.y = p.y;
 	}
 	private mouseUp(evt:egret.TouchEvent){
 		//this.myBall.removeEventListener(egret.TouchEvent.TOUCH_MOVE,this.mouseMove,this);

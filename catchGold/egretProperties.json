@@ -7,7 +7,8 @@
     "native": 1,
     "path": "bin-release"
   },
-  "egret_version": "3.2.5",
+  "egret_version": "5.0.13",
+  "template": {},
   "modules": [
     {
       "name": "egret"
@@ -16,10 +17,14 @@
       "name": "game"
     },
     {
+      "name": "tween"
+    },
+    {
       "name": "res"
     },
     {
-      "name": "tween"
+      "name": "promise",
+      "path": "./promise"
     }
   ]
 }
