@@ -38,7 +38,6 @@ var OverScene = (function (_super) {
         shape.graphics.drawRect(0, 0, 400, 300);
         shape.graphics.endFill();
         shape.anchorOffsetX = shape.width / 2;
-        //shape.anchorOffsetY = shape.height / 2;
         shape.x = stageW / 2;
         shape.y = stageH * 0.1;
         this.addChild(shape);
@@ -48,7 +47,6 @@ var OverScene = (function (_super) {
         this.addChild(txt);
         txt.y = stageH * 0.15;
         txt.textAlign = egret.HorizontalAlign.CENTER;
-        //txt.inputType = egret.TextFieldInputType.TEXT;
         txt.size = 30;
         txt.textColor = 0xff0000;
         var t = parseInt(score);
@@ -103,14 +101,11 @@ var OverScene = (function (_super) {
     };
     //  home按钮回调
     OverScene.prototype.homeBtnCallback = function (evt) {
-        // console.log("home按钮回调");
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }
         else if (evt.type == egret.TouchEvent.TOUCH_END) {
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
             var key = "score";
@@ -120,49 +115,40 @@ var OverScene = (function (_super) {
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
     };
-    //  home按钮回调
+    // 再来一次按钮回调
     OverScene.prototype.againBtnCallback = function (evt) {
-        // console.log("home按钮回调");
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }
         else if (evt.type == egret.TouchEvent.TOUCH_END) {
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
             var event = new GameEvent(GameEvent.GAME_BLEED);
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
     };
     //  排行榜按钮回调
     OverScene.prototype.rankBtnCallback = function (evt) {
-        // console.log("home按钮回调");
         if (evt.type == egret.TouchEvent.TOUCH_BEGIN) {
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }
         else if (evt.type == egret.TouchEvent.TOUCH_END) {
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
             var event = new GameEvent(GameEvent.GAME_TORANK);
             this.dispatchEvent(event);
         }
         else if (evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) {
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }

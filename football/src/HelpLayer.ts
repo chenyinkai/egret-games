@@ -52,22 +52,15 @@ class HelpLayer extends egret.Sprite{
 
     //  home按钮回调
     private homeBtnCallback(evt:egret.TouchEvent):void {
-        // console.log("home按钮回调");
-
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
-      
             var event:GameEvent = new GameEvent(GameEvent.GAME_START);
             this.dispatchEvent(event);
-
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }

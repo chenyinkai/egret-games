@@ -4,7 +4,6 @@ class Man extends egret.Sprite{
 		this.init();
 	}
 
-	
 	private man:egret.Bitmap;
 	private init(){
 		var man = new egret.Bitmap();
@@ -13,7 +12,6 @@ class Man extends egret.Sprite{
 		this.anchorOffsetY = this.height / 2;
 		man.x = 0;
 		man.y = 0;
-		//man.touchEnabled = true;
 		this.man = man;
 	}
 }

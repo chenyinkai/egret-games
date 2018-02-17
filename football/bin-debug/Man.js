@@ -25,7 +25,6 @@ var Man = (function (_super) {
         this.anchorOffsetY = this.height / 2;
         man.x = 0;
         man.y = 0;
-        //man.touchEnabled = true;
         this.man = man;
     };
     return Man;

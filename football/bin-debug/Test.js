@@ -106,7 +106,6 @@ var Test = (function (_super) {
                     this.ballScore.text = "" + this.score;
                     this.balls[j].x = 10000;
                     this.balls[j].y = -99999999999999999999999;
-                    //console.log("zazhongle");
                     this.earthquake();
                     var key = "score";
                     var value = "" + this.score;
@@ -132,7 +131,6 @@ var Test = (function (_super) {
                     this.ballScore.text = "" + this.score;
                     this.balls[j].x = 10000;
                     this.balls[j].y = -99999999999999999999999;
-                    //console.log("zazhongle");
                     this.earthquake();
                     var key = "score";
                     var value = "" + this.score;
@@ -148,7 +146,6 @@ var Test = (function (_super) {
     };
     Test.prototype.gameOver = function () {
         this.timer.stop();
-        //console.log("游戏结束");
         var event = new GameEvent(GameEvent.GAME_HIT);
         this.dispatchEvent(event);
     };

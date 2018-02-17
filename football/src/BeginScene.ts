@@ -1,6 +1,3 @@
-declare function isdefwinname();
-declare function listShow();
-declare function getwinname();
 class BeginScene extends egret.Sprite{
 	public constructor() {
 		super();
@@ -38,7 +35,7 @@ class BeginScene extends egret.Sprite{
         rank.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.rankCallback, this);
         this.rank = rank;
 
-         // 开始按钮
+         // 标题
         var title = new egret.Bitmap();
         title.texture = RES.getRes("title2_png");
         this.addChild(title);
@@ -76,28 +73,17 @@ class BeginScene extends egret.Sprite{
         helpBtn.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.helpBtnCallback, this);
         this.helpBtn = helpBtn;
 	}
-
 	//  排行按钮回调
     private rankCallback(evt:egret.TouchEvent):void {
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            //console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
-            ////  播放按钮声音
-            //this.btnClickSound.play();
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            //console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
-            //  开始游戏
-            // 次数判断
-			
             var event:GameEvent = new GameEvent(GameEvent.GAME_RANK);
             this.dispatchEvent(event);
-           
-            
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            //console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }

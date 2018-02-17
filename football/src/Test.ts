@@ -50,7 +50,6 @@ class Test extends egret.Sprite{
 		}
 	}
 	//足球部分
-	//jinzi
 	private foes:Array<Ball>;
     private deaths:Array<any>;
 	private balls:Array<any>;
@@ -69,7 +68,6 @@ class Test extends egret.Sprite{
 		this.deaths = [];
 
 		this.ballPlace = [0+20,98+86+20,196+98+86+20,284+86+196+20,95+20,190+86+20,280+190+20];
-		
 	}
 
 	private timerfunc(){
@@ -90,7 +88,6 @@ class Test extends egret.Sprite{
 		for ( var i = 0; i < this.foes.length; i++ ) {
             this.foes[i].move(this.deaths);
         }
-
 
 		if(this.flag == 1){
 			var distance = 0;
@@ -114,7 +111,6 @@ class Test extends egret.Sprite{
 					this.ballScore.text = ""+this.score;
 					this.balls[j].x = 10000;
 					this.balls[j].y = -99999999999999999999999;
-					//console.log("zazhongle");
 					this.earthquake();
 					var key:string ="score";
 					var value:string =""+this.score;
@@ -139,7 +135,6 @@ class Test extends egret.Sprite{
 					this.ballScore.text = ""+this.score;
 					this.balls[j].x = 10000;
 					this.balls[j].y = -99999999999999999999999;
-					//console.log("zazhongle");
 					this.earthquake();
 					
 					var key:string ="score";
@@ -156,7 +151,6 @@ class Test extends egret.Sprite{
 	}
 	private gameOver(){
 		this.timer.stop();
-		//console.log("游戏结束");
 		var event:GameEvent = new GameEvent(GameEvent.GAME_HIT);
 		this.dispatchEvent(event);
 	}

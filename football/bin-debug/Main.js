@@ -122,7 +122,6 @@ var Main = (function (_super) {
     };
     /* 游戏准备 */
     Main.prototype.startgame = function () {
-        //console.log("startgame");
         this.removeChildren();
         var layer = new BeginScene();
         this.addChild(layer);
@@ -143,11 +142,9 @@ var Main = (function (_super) {
         var ball = new Test();
         this.addChild(ball);
         ball.addEventListener(GameEvent.GAME_HIT, this.gameover, this);
-        //layer.addEventListener(GameEvent.GAME_START, this.startgame, this);
     };
     /*gameover */
     Main.prototype.gameover = function () {
-        //this.removeChildren();
         var layer = new OverScene();
         this.addChild(layer);
         layer.addEventListener(GameEvent.GAME_CONTINUE, this.begingame, this);
@@ -155,7 +152,6 @@ var Main = (function (_super) {
         layer.addEventListener(GameEvent.GAME_TORANK, this.rank, this);
     };
     Main.prototype.begingame = function () {
-        console.log("startgame");
         this.go();
     };
     /* help */
