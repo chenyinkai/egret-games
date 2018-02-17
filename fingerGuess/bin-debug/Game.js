@@ -1,11 +1,16 @@
 var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Game = (function (_super) {
     __extends(Game, _super);
     function Game() {
@@ -42,7 +47,6 @@ var Game = (function (_super) {
         this.score_txt = score_txt;
         var timerPanel = new TimerPanel();
         this.addChild(timerPanel);
-        //this.timerPanel = timerPanel;
         timerPanel.start();
         timerPanel.addEventListener(GameEvent.GAME_OVER, this.gameOver, this);
     };
@@ -161,7 +165,6 @@ var Game = (function (_super) {
         left_btn.texture = RES.getRes("left_png");
         this.addChild(left_btn);
         this.left_btn = left_btn;
-        //this.left_btn.touchEnabled = true;
         left_btn.anchorOffsetX = left_btn.width / 2;
         left_btn.anchorOffsetY = left_btn.height / 2;
         left_btn.x = left_btn.width / 2;
@@ -173,7 +176,6 @@ var Game = (function (_super) {
         middle_btn.texture = RES.getRes("middle_png");
         this.addChild(middle_btn);
         this.middle_btn = middle_btn;
-        //this.middle_btn.touchEnabled = true;
         middle_btn.anchorOffsetX = middle_btn.width / 2;
         middle_btn.anchorOffsetY = middle_btn.height / 2;
         middle_btn.x = middle_btn.width / 2 + left_btn.width;
@@ -185,7 +187,6 @@ var Game = (function (_super) {
         right_btn.texture = RES.getRes("right_png");
         this.addChild(right_btn);
         this.right_btn = right_btn;
-        //this.right_btn.touchEnabled = true;
         right_btn.anchorOffsetX = right_btn.width / 2;
         right_btn.anchorOffsetY = right_btn.height / 2;
         right_btn.x = right_btn.width / 2 + left_btn.width + middle_btn.width;

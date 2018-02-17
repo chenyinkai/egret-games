@@ -13,7 +13,6 @@ class TimerPanel extends egret.Sprite{
 		this.txt.y = 110;
 		this.txt.x = 250;
 		this.txt.textColor = 0xff0000;
-		//this.txt.textAlign = egret.HorizontalAlign.CENTER;
 		this.txt.text = "45'00''";
 		this.addChild(this.txt);
 	}
@@ -43,7 +42,6 @@ class TimerPanel extends egret.Sprite{
 	private onTimerCom(){
 		this.txt.text = "00'00''";
 		//结束
-		console.log(111);
 		var event:GameEvent = new GameEvent(GameEvent.GAME_OVER);
         this.dispatchEvent(event);
 	}

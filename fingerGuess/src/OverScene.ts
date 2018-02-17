@@ -1,6 +1,3 @@
-declare function isdefwinname();
-declare function listShow();
-declare function getwinname();
 class OverScene extends egret.Sprite{
 	public constructor() {
 		super();
@@ -28,26 +25,11 @@ class OverScene extends egret.Sprite{
 		var game_score:string = egret.localStorage.getItem("canquan_game_score");
 		var score = new egret.TextField();
 		score.size = 80;
-		//score.text = "20";
 		score.text = game_score;
 		score.x = 260;
 		score.y = 500;
 		score.textColor = 0xff0000;
 		this.addChild(score);
-
-		if(window.name){
-			var winname = getwinname();
-			var params = "gid=" + winname.gid  + "&uid=" + winname.uid + "&score=" + game_score;
-			var request = new egret.HttpRequest();
-			request.responseType = egret.HttpResponseType.TEXT;
-			//设置为 POST 请求
-			request.open("your url", egret.HttpMethod.POST);
-			request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			request.send(params);
-			request.addEventListener(egret.Event.COMPLETE,this.onPostComplete,this);
-			request.addEventListener(egret.IOErrorEvent.IO_ERROR,this.onPostIOError,this);
-			request.addEventListener(egret.ProgressEvent.PROGRESS,this.onPostProgress,this);
-		}
 
 		var replay_btn = new egret.Bitmap();
 		replay_btn.texture = RES.getRes("replay_png");
@@ -134,18 +116,5 @@ class OverScene extends egret.Sprite{
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
-
-    }
-
-	private onPostComplete(event:egret.Event):void {
-        var request = <egret.HttpRequest>event.currentTarget;
-        // console.log("post data : ",request.response);
-
-        // var userinfo = JSON.parse(request.response);
-    }
-    private onPostIOError(event:egret.IOErrorEvent):void {
-        console.log("FailedLayer post error : " + event);
-    }
-    private onPostProgress(event:egret.ProgressEvent):void {
     }
 }

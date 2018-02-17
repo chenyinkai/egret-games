@@ -39,7 +39,6 @@ class Game extends egret.Sprite{
 
 		var timerPanel = new TimerPanel();
 		this.addChild(timerPanel);
-		//this.timerPanel = timerPanel;
 		timerPanel.start();
 		timerPanel.addEventListener(GameEvent.GAME_OVER,this.gameOver,this);
 		
@@ -168,7 +167,6 @@ class Game extends egret.Sprite{
 		left_btn.texture = RES.getRes("left_png");
 		this.addChild(left_btn);
 		this.left_btn = left_btn;
-		//this.left_btn.touchEnabled = true;
 		left_btn.anchorOffsetX = left_btn.width / 2;
 		left_btn.anchorOffsetY = left_btn.height / 2;
 		left_btn.x = left_btn.width / 2;
@@ -181,7 +179,6 @@ class Game extends egret.Sprite{
 		middle_btn.texture = RES.getRes("middle_png");
 		this.addChild(middle_btn);
 		this.middle_btn = middle_btn;
-		//this.middle_btn.touchEnabled = true;
 		middle_btn.anchorOffsetX = middle_btn.width / 2;
 		middle_btn.anchorOffsetY = middle_btn.height / 2;
 		middle_btn.x = middle_btn.width / 2 + left_btn.width;
@@ -194,7 +191,6 @@ class Game extends egret.Sprite{
 		right_btn.texture = RES.getRes("right_png");
 		this.addChild(right_btn);
 		this.right_btn = right_btn;
-		//this.right_btn.touchEnabled = true;
 		right_btn.anchorOffsetX = right_btn.width / 2;
 		right_btn.anchorOffsetY = right_btn.height / 2;
 		right_btn.x = right_btn.width / 2 + left_btn.width + middle_btn.width;

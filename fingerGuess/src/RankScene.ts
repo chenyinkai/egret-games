@@ -30,7 +30,6 @@ class RankScene extends egret.Sprite {
 		this.addChild(title);
 		title.y = 50;
         title.textAlign = egret.HorizontalAlign.CENTER;
-		//title.inputType = egret.TextFieldInputType.TEXT;
 		title.size = 50;
 		title.textColor = 0x00ff00;
         title.text = "排行榜(前十)";
@@ -43,7 +42,6 @@ class RankScene extends egret.Sprite {
         txt.textAlign = egret.HorizontalAlign.LEFT;
 		txt.size = 30;
 		txt.textColor = 0x00ff00;
-        //txt.text = "您还没有成绩，赶快参加吧。";
         this.txt = txt;
 
          //  添加返回主菜单按钮
@@ -114,30 +112,18 @@ class RankScene extends egret.Sprite {
                 }else{
 
                 }
-				
 			}
-            // for(var i = 0; i < 10; i++){
-            //     if(js.data[i].name == null){
-            //         this.txt.text += js.data[i].ranking + "、   玩家 :  " + "无名大侠" + "       分数 :    " + js.data[i].tscore + "\n";
-            //     }else{
-            //         this.txt.text += js.data[i].ranking + "、   玩家 :  " + js.data[i].name + "      分数 :    " + js.data[i].tscore + "\n";
-            //     }
-            // }
         }
     }
 
     
 
-    //  home按钮回调
+    // 返回按钮回调
     private homeBtnCallback(evt:egret.TouchEvent):void {
-        // console.log("home按钮回调");
-
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
       
@@ -145,7 +131,6 @@ class RankScene extends egret.Sprite {
             this.dispatchEvent(event);
 
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
