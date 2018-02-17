@@ -6,6 +6,5 @@ class GameEvent extends egret.Event{
     public static GAME_CONTINUE:string = "game_continue_event";
     public static GAME_BLEED:string = "game_bleed_event";
     public static GAME_HELP:string = "game_help_event";
-
     public static GAME_HINT:string = "game_hint_event";
 }

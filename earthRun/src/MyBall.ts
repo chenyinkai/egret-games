@@ -11,12 +11,8 @@ class MyBall extends egret.Sprite{
 		this.addChild(myBall);
 		myBall.x = 0;
 		myBall.y = 0;
-		// myBall.width = 100;
-		// myBall.height = 100;
 		myBall.scaleX = 0.5;
 		myBall.scaleY = 0.5;
-		//myBall.anchorOffsetX = myBall.width / 2;
-		//myBall.anchorOffsetY = myBall.height / 2;
 		this.anchorOffsetX = this.width / 2;
 		this.anchorOffsetY = this.height / 2;
 		myBall.touchEnabled = true;
@@ -37,6 +33,7 @@ class MyBall extends egret.Sprite{
 		var p:egret.Point = new egret.Point(evt.stageX,evt.stageY);
 		this.x = p.x;
 		this.y = p.y;
+		//不超出屏幕
 		if(this.x < 50){
 			this.x = 50;
 		 }else if(this.x > scrW - 50){

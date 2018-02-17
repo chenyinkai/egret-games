@@ -1,25 +1,5 @@
-
-var game_file_list = [
-    //以下为自动修改，请勿修改
-    //----auto game_file_list start----
-	"libs/modules/egret/egret.js",
-	"libs/modules/egret/egret.native.js",
-	"libs/modules/game/game.js",
-	"libs/modules/game/game.native.js",
-	"libs/modules/res/res.js",
-	"libs/modules/tween/tween.js",
-	"bin-debug/BeginScene.js",
-	"bin-debug/Data.js",
-	"bin-debug/EnemyBall.js",
-	"bin-debug/Game.js",
-	"bin-debug/GameEvent.js",
-	"bin-debug/HelpLayer.js",
-	"bin-debug/LoadingUI.js",
-	"bin-debug/Main.js",
-	"bin-debug/MyBall.js",
-	"bin-debug/OverScene.js",
-	//----auto game_file_list end----
-];
+var manifest = JSON.parse(egret_native.readFileSync("manifest.json"));
+var game_file_list = manifest.initial.concat(manifest.game);
 
 var window = this;
 
@@ -35,12 +15,12 @@ egret_native.requireFiles = function () {
 egret_native.egretInit = function () {
     if(egret_native.featureEnable) {
         //控制一些优化方案是否开启
+        //Control whether some optimization options are open
         var result = egret_native.featureEnable({
             
         });
     }
     egret_native.requireFiles();
-    //egret.dom为空实现
     egret.dom = {};
     egret.dom.drawAsCanvas = function () {
     };
@@ -49,6 +29,7 @@ egret_native.egretInit = function () {
 egret_native.egretStart = function () {
     var option = {
         //以下为自动修改，请勿修改
+        //The following is automatically modified, please do not modify
         //----auto option start----
 		entryClassName: "Main",
 		frameRate: 30,

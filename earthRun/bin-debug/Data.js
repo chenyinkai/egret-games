@@ -1,7 +1,9 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
 var Data = (function () {
     function Data() {
     }
-    var d = __define,c=Data,p=c.prototype;
     Data.getStageWidth = function () {
         return egret.MainContext.instance.stage.stageWidth;
     };
@@ -10,5 +12,5 @@ var Data = (function () {
     };
     return Data;
 }());
-egret.registerClass(Data,'Data');
+__reflect(Data.prototype, "Data");
 //# sourceMappingURL=Data.js.map

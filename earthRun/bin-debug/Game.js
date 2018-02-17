@@ -1,13 +1,26 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var Game = (function (_super) {
     __extends(Game, _super);
     function Game() {
-        _super.call(this);
-        this.j = 0;
-        this.score = 0;
-        this.init();
+        var _this = _super.call(this) || this;
+        _this.j = 0;
+        _this.score = 0;
+        _this.init();
+        return _this;
     }
-    var d = __define,c=Game,p=c.prototype;
-    p.init = function () {
+    Game.prototype.init = function () {
         var scrW = Data.getStageWidth();
         var scrH = Data.getStageHeight();
         var bg = new egret.Bitmap();
@@ -27,7 +40,7 @@ var Game = (function (_super) {
         this.timer.start();
         this.deaths = [];
     };
-    p.timerfunc = function () {
+    Game.prototype.timerfunc = function () {
         this.j += 1;
         if (this.j % 30 === 0) {
             this.score++;
@@ -50,30 +63,24 @@ var Game = (function (_super) {
                 foe.x = Math.floor(Math.random() * Data.getStageWidth());
                 foe.y = Data.getStageHeight() + 20;
             }
-            console.log(Math.random() + ":" + foe.x + ":" + foe.y);
             this.foes.push(foe);
             this.addChild(foe);
             this.balls.push(foe);
         }
         var distance = 0;
         var distance2 = 0;
-        //console.log(this.myBall.x);
         for (var j = 0; j < this.balls.length; j++) {
-            //console.log(this.balls[j].x);
             distance = Math.floor(Math.sqrt((this.balls[j].x - this.myBall.x) * (this.balls[j].x - this.myBall.x) + (this.balls[j].y - this.myBall.y) * (this.balls[j].y - this.myBall.y)));
             distance2 = 80;
             if (distance < distance2) {
                 this.drawInit();
             }
         }
-        //console.log(this.j+"?"+this.foes + ":" + this.deaths);
         for (var i = 0; i < this.foes.length; i++) {
-            //console.log(this.foes[i].status);
             this.foes[i].move(this.deaths);
         }
     };
-    p.drawInit = function () {
-        //this.removeChildren();
+    Game.prototype.drawInit = function () {
         var nowscore = 0;
         var scrW = Data.getStageWidth();
         var scrH = Data.getStageHeight();
@@ -84,7 +91,6 @@ var Game = (function (_super) {
         shape.graphics.drawRect(0, 0, 400, 400);
         shape.graphics.endFill();
         shape.anchorOffsetX = shape.width / 2;
-        //shape.anchorOffsetY = shape.height / 2;
         shape.x = scrW / 2;
         shape.y = scrH * 0.1;
         this.addChild(shape);
@@ -92,7 +98,6 @@ var Game = (function (_super) {
         this.addChild(txt);
         txt.x = 150;
         txt.y = scrH * 0.13;
-        //txt.inputType = egret.TextFieldInputType.TEXT;
         txt.size = 50;
         txt.textColor = 0xff0000;
         console.log(this.score);
@@ -124,13 +129,11 @@ var Game = (function (_super) {
             txt.text = "  你坚持了" + this.nowscore + "秒" + "\n" + "\n" + "    获得称号" + "\n" + "\n" + '"地球的守护者"';
         }
         this.removeChild(this.myBall);
-        //this.myBall.touchEnabled = false;
-        //console.log("你坚持了"+ this.nowscore +"秒");
         this.timer.stop();
         var event = new GameEvent(GameEvent.GAME_OVER);
         this.dispatchEvent(event);
     };
     return Game;
 }(egret.Sprite));
-egret.registerClass(Game,'Game');
+__reflect(Game.prototype, "Game");
 //# sourceMappingURL=Game.js.map

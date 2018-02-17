@@ -117,8 +117,6 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
     private createGameScene():void {
-        // var ball = new Game();
-        // this.addChild(ball);
         var startScene = new BeginScene();
         this.addChild(startScene);
 
@@ -128,7 +126,6 @@ class Main extends egret.DisplayObjectContainer {
 
      /* 游戏准备 */
     private startgame():void {
-        //console.log("startgame");
         this.removeChildren();
         var layer = new BeginScene();
         this.addChild(layer);
@@ -141,14 +138,11 @@ class Main extends egret.DisplayObjectContainer {
         this.removeChildren();
         var ball = new Game();
         this.addChild(ball);
-
         ball.addEventListener(GameEvent.GAME_OVER, this.gameover, this);
-        //layer.addEventListener(GameEvent.GAME_START, this.startgame, this);
     }
 
     /*gameover */
     private gameover(){
-        //this.removeChildren();
         var layer = new OverScene();
         this.addChild(layer);
         layer.addEventListener(GameEvent.GAME_CONTINUE, this.begingame, this);
@@ -156,7 +150,6 @@ class Main extends egret.DisplayObjectContainer {
     }
 
     private begingame(){
-        console.log("startgame");
         this.go();
     }
      /* help */

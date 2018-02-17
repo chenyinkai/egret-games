@@ -17,9 +17,8 @@ class Game extends egret.Sprite{
 	public nowscore:number;
 	private txt:egret.TextField;
 	
-
 	private init(){
-		
+
 		var scrW = Data.getStageWidth();
 		var scrH = Data.getStageHeight();
 		var bg = new egret.Bitmap();
@@ -34,22 +33,17 @@ class Game extends egret.Sprite{
 		myBall.x = myBall.width / 2;
 		myBall.y = myBall.height / 2;
 
-
 		this.foes = [];
 		this.balls = [];
 		
 		this.timer = new egret.Timer(1000/30,0);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.timerfunc, this);
         this.timer.start();
-
 		this.deaths = [];
-		
 	}
 	private timerfunc(){
 		
-		
 		this.j +=1;
-		
 		if(this.j % 30 === 0){
 			this.score++;
 		}
@@ -69,35 +63,28 @@ class Game extends egret.Sprite{
 				 foe.x = Math.floor(Math.random()*Data.getStageWidth());
 				 foe.y = Data.getStageHeight() + 20;
 			 }
-			 console.log(Math.random() + ":" +foe.x + ":" + foe.y);
              this.foes.push(foe);
              this.addChild(foe);
 			 this.balls.push(foe);
-			 //console.log(this.balls.length);
 		}
 		
 		var distance = 0;
 		var distance2 = 0;
-		//console.log(this.myBall.x);
 		for(var j = 0; j < this.balls.length; j++){
-			//console.log(this.balls[j].x);
 			distance = Math.floor(Math.sqrt((this.balls[j].x - this.myBall.x)*(this.balls[j].x - this.myBall.x) + (this.balls[j].y - this.myBall.y)*(this.balls[j].y - this.myBall.y)));
 			distance2 = 80;	
 			if ( distance < distance2 ) {
 				this.drawInit();
 			}
 		}
-		//console.log(this.j+"?"+this.foes + ":" + this.deaths);
 		
 		for ( var i = 0; i < this.foes.length; i++ ) {
-			//console.log(this.foes[i].status);
             this.foes[i].move(this.deaths);
         }
 	}
 
 	private txtShape:egret.Shape;
 	private drawInit (){
-		//this.removeChildren();
 		var nowscore = 0;
 		var scrW = Data.getStageWidth();
 		var scrH = Data.getStageHeight();
@@ -110,7 +97,6 @@ class Game extends egret.Sprite{
 		shape.graphics.drawRect( 0, 0, 400, 400 );
 		shape.graphics.endFill();
 		shape.anchorOffsetX = shape.width / 2;
-		//shape.anchorOffsetY = shape.height / 2;
 		shape.x = scrW / 2;
 		shape.y = scrH * 0.1;
 		this.addChild( shape );
@@ -119,7 +105,6 @@ class Game extends egret.Sprite{
 		this.addChild(txt);
 		txt.x = 150;
 		txt.y = scrH * 0.13;
-		//txt.inputType = egret.TextFieldInputType.TEXT;
 		txt.size = 50;
 		txt.textColor = 0xff0000;
 		console.log(this.score);
@@ -145,12 +130,8 @@ class Game extends egret.Sprite{
 		
 		
 		this.removeChild(this.myBall);
-		//this.myBall.touchEnabled = false;
-		//console.log("你坚持了"+ this.nowscore +"秒");
 		this.timer.stop();
 		var event:GameEvent = new GameEvent(GameEvent.GAME_OVER);
         this.dispatchEvent(event);
-
-		
 	}
 }

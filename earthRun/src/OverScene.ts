@@ -17,14 +17,7 @@ class OverScene extends egret.Sprite{
         var stageW = this.stageW;
         var stageH = this.stageH;
 
-		// var ball = new Game();
-		// ball.timer.stop();
-		// //添加文字
-		// var txt = new egret.TextField();
-		// txt.text = "你坚持了"+ ball.nowscore +"秒";
-		// this.addChild(txt);uires_5.png
-
-		 //  添加返回主菜单按钮
+		// 添加返回主菜单按钮
         var againBtn = new egret.Bitmap();
         againBtn.texture = RES.getRes("return_png");
         this.addChild(againBtn);
@@ -52,48 +45,34 @@ class OverScene extends egret.Sprite{
 
     }
 
-    //  home按钮回调
+    //  返回按钮回调
     private homeBtnCallback(evt:egret.TouchEvent):void {
-        // console.log("home按钮回调");
-
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
-      
             var event:GameEvent = new GameEvent(GameEvent.GAME_CONTINUE);
             this.dispatchEvent(event);
-
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }
 
     }
 
-	//  home按钮回调
+	// 再来一次按钮回调
     private againBtnCallback(evt:egret.TouchEvent):void {
-        // console.log("home按钮回调");
-
         if(evt.type == egret.TouchEvent.TOUCH_BEGIN){
-            // console.log("touch begin");
             evt.currentTarget.scaleX = 1.05;
             evt.currentTarget.scaleY = 1.05;
         }else if(evt.type == egret.TouchEvent.TOUCH_END){
-            // console.log("touch ended");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
-      
             var event:GameEvent = new GameEvent(GameEvent.GAME_BLEED);
             this.dispatchEvent(event);
-
         }else if(evt.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE){
-            // console.log("touch cancel");
             evt.currentTarget.scaleX = 1.0;
             evt.currentTarget.scaleY = 1.0;
         }

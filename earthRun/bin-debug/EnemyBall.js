@@ -1,13 +1,26 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var EnemyBall = (function (_super) {
     __extends(EnemyBall, _super);
     function EnemyBall() {
-        _super.call(this);
-        this._cont = 60;
-        this.status = 0;
-        this.init();
+        var _this = _super.call(this) || this;
+        _this._cont = 60;
+        _this.status = 0;
+        _this.init();
+        return _this;
     }
-    var d = __define,c=EnemyBall,p=c.prototype;
-    p.init = function () {
+    EnemyBall.prototype.init = function () {
         this.anchorOffsetX = this.width / 2;
         this.anchorOffsetY = this.height / 2;
         var _circle = new egret.Bitmap();
@@ -30,7 +43,7 @@ var EnemyBall = (function (_super) {
         this._speedX = speedX;
         this._speedY = speedY;
     };
-    p.move = function (deaths) {
+    EnemyBall.prototype.move = function (deaths) {
         if (this.status == 0) {
             var x = this.x;
             var y = this.y;
@@ -38,6 +51,7 @@ var EnemyBall = (function (_super) {
             var h = Data.getStageHeight();
             x += this._speedX;
             y += this._speedY;
+            //到边缘处转向
             if (x <= 0) {
                 this.x = 0;
                 this._speedX *= -1;
@@ -62,10 +76,7 @@ var EnemyBall = (function (_super) {
             }
         }
     };
-    p.drawInit = function () {
-        //console.log("ndnbovnwbdbnownnnnnnnnnnnbowoo");
-    };
     return EnemyBall;
 }(egret.Sprite));
-egret.registerClass(EnemyBall,'EnemyBall');
+__reflect(EnemyBall.prototype, "EnemyBall");
 //# sourceMappingURL=EnemyBall.js.map

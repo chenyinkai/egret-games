@@ -51,7 +51,7 @@ class EnemyBall extends egret.Sprite {
             var h = Data.getStageHeight();
             x += this._speedX;
             y += this._speedY;
-
+            //到边缘处转向
             if ( x <= 0 ) {
                 this.x = 0;
                 this._speedX *= -1;
@@ -71,14 +71,6 @@ class EnemyBall extends egret.Sprite {
             } else {
                 this.y = y;
             }
-
         }
-
-        
     }
-
-	private drawInit(){
-		//console.log("ndnbovnwbdbnownnnnnnnnnnnbowoo");
-	}
-
 }
