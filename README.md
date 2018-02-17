@@ -16,7 +16,7 @@
 
     > 控制地球躲避从四周产生的陨石，坚持时间越久则得分越高
 
-    > [在线预览](https://chenyinkai.github.io/Pages/egret/eartchRun/index.html)
+    > [在线预览](https://chenyinkai.github.io/Pages/egret/earthRun/index.html)
 
 * fingerGuess
 
